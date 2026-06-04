@@ -10,7 +10,7 @@
 body{
     margin:0;
     font-family:Arial, sans-serif;
-    background:#f4f4f4;
+    background:#f5f5f5;
 }
 
 header{
@@ -31,7 +31,7 @@ header{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:20px;
+    gap:25px;
 }
 
 .card{
@@ -52,31 +52,32 @@ header{
     padding:15px;
 }
 
-button{
+h2{
+    margin-top:0;
+}
+
+ul, ol{
+    text-align:left;
+}
+
+.recommend-btn{
+    display:block;
+    margin:30px auto;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
     background:#ff7043;
     color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:8px;
     cursor:pointer;
-}
-
-button:hover{
-    opacity:0.9;
-}
-
-.recipe-detail{
-    display:none;
-    margin-top:10px;
-    text-align:left;
+    font-size:16px;
 }
 
 #recommendation{
     text-align:center;
     font-size:22px;
-    font-weight:bold;
     color:#ff7043;
-    margin-top:20px;
+    font-weight:bold;
+    margin-bottom:30px;
 }
 </style>
 
@@ -95,33 +96,28 @@ button:hover{
 <div class="recipe-grid">
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800" alt="Kimchi Fried Rice">
+        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800" alt="Kimchi Fried Rice">
 
         <div class="card-content">
             <h2>Kimchi Fried Rice</h2>
-            <p>Cooking Time: 15 min | Difficulty: Easy</p>
+            <p><b>Cooking Time:</b> 15 min</p>
+            <p><b>Difficulty:</b> Easy</p>
 
-            <button onclick="toggleRecipe('recipe1')">
-                View Recipe
-            </button>
+            <h3>Ingredients</h3>
+            <ul>
+                <li>Rice</li>
+                <li>Kimchi</li>
+                <li>Egg</li>
+                <li>Green Onion</li>
+            </ul>
 
-            <div class="recipe-detail" id="recipe1">
-                <h4>Ingredients</h4>
-                <ul>
-                    <li>Rice</li>
-                    <li>Kimchi</li>
-                    <li>Egg</li>
-                    <li>Green Onion</li>
-                </ul>
-
-                <h4>Instructions</h4>
-                <ol>
-                    <li>Stir-fry the kimchi.</li>
-                    <li>Add rice and mix well.</li>
-                    <li>Top with a fried egg.</li>
-                    <li>Serve hot.</li>
-                </ol>
-            </div>
+            <h3>Instructions</h3>
+            <ol>
+                <li>Stir-fry the kimchi.</li>
+                <li>Add rice and mix well.</li>
+                <li>Cook a fried egg.</li>
+                <li>Place the egg on top and serve.</li>
+            </ol>
         </div>
     </div>
 
@@ -130,29 +126,24 @@ button:hover{
 
         <div class="card-content">
             <h2>Pasta</h2>
-            <p>Cooking Time: 25 min | Difficulty: Medium</p>
+            <p><b>Cooking Time:</b> 25 min</p>
+            <p><b>Difficulty:</b> Medium</p>
 
-            <button onclick="toggleRecipe('recipe2')">
-                View Recipe
-            </button>
+            <h3>Ingredients</h3>
+            <ul>
+                <li>Pasta Noodles</li>
+                <li>Tomato Sauce</li>
+                <li>Garlic</li>
+                <li>Olive Oil</li>
+            </ul>
 
-            <div class="recipe-detail" id="recipe2">
-                <h4>Ingredients</h4>
-                <ul>
-                    <li>Pasta Noodles</li>
-                    <li>Tomato Sauce</li>
-                    <li>Garlic</li>
-                    <li>Olive Oil</li>
-                </ul>
-
-                <h4>Instructions</h4>
-                <ol>
-                    <li>Boil the pasta.</li>
-                    <li>Cook garlic in olive oil.</li>
-                    <li>Add tomato sauce.</li>
-                    <li>Mix with pasta and serve.</li>
-                </ol>
-            </div>
+            <h3>Instructions</h3>
+            <ol>
+                <li>Boil pasta noodles.</li>
+                <li>Cook garlic in olive oil.</li>
+                <li>Add tomato sauce.</li>
+                <li>Mix with pasta and serve.</li>
+            </ol>
         </div>
     </div>
 
@@ -161,68 +152,52 @@ button:hover{
 
         <div class="card-content">
             <h2>Pancakes</h2>
-            <p>Cooking Time: 20 min | Difficulty: Easy</p>
+            <p><b>Cooking Time:</b> 20 min</p>
+            <p><b>Difficulty:</b> Easy</p>
 
-            <button onclick="toggleRecipe('recipe3')">
-                View Recipe
-            </button>
+            <h3>Ingredients</h3>
+            <ul>
+                <li>Flour</li>
+                <li>Milk</li>
+                <li>Eggs</li>
+                <li>Sugar</li>
+            </ul>
 
-            <div class="recipe-detail" id="recipe3">
-                <h4>Ingredients</h4>
-                <ul>
-                    <li>Flour</li>
-                    <li>Milk</li>
-                    <li>Eggs</li>
-                    <li>Sugar</li>
-                </ul>
-
-                <h4>Instructions</h4>
-                <ol>
-                    <li>Mix all ingredients.</li>
-                    <li>Pour batter onto a pan.</li>
-                    <li>Cook both sides until golden.</li>
-                    <li>Serve with syrup.</li>
-                </ol>
-            </div>
+            <h3>Instructions</h3>
+            <ol>
+                <li>Mix all ingredients.</li>
+                <li>Pour batter into a pan.</li>
+                <li>Cook until golden brown.</li>
+                <li>Serve with syrup.</li>
+            </ol>
         </div>
     </div>
 
 </div>
 
-<div style="text-align:center;">
-    <button onclick="recommendRecipe()">
-        Recommend a Recipe
-    </button>
-</div>
+<button class="recommend-btn" onclick="recommendRecipe()">
+    Recommend a Recipe
+</button>
 
-<p id="recommendation"></p>
+<div id="recommendation"></div>
 ```
 
 </div>
 
 <script>
-function toggleRecipe(id){
-    const recipe = document.getElementById(id);
-
-    if(recipe.style.display === "block"){
-        recipe.style.display = "none";
-    } else {
-        recipe.style.display = "block";
-    }
-}
-
 function recommendRecipe(){
+
     const recipes = [
         "Kimchi Fried Rice",
         "Pasta",
         "Pancakes"
     ];
 
-    const randomRecipe =
+    const random =
     recipes[Math.floor(Math.random() * recipes.length)];
 
     document.getElementById("recommendation").innerText =
-    "Today's Recommendation: " + randomRecipe;
+    "Today's Recommendation: " + random;
 }
 </script>
 
