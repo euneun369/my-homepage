@@ -7,39 +7,47 @@
 <title>Easy Recipe Hub</title>
 
 <style>
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     font-family:Arial, sans-serif;
-    background:#f5f5f5;
+    background:#f4f4f4;
 }
 
 header{
-    background:#ff7043;
+    background:#ff6b35;
     color:white;
     text-align:center;
-    padding:30px;
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:40px;
 }
 
 .container{
     width:90%;
     max-width:1200px;
-    margin:auto;
-    padding:20px;
+    margin:30px auto;
 }
 
 .recipe-grid{
     display:flex;
     flex-wrap:wrap;
+    gap:20px;
     justify-content:center;
-    gap:25px;
 }
 
 .card{
     background:white;
-    width:320px;
+    width:350px;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 
 .card img{
@@ -49,35 +57,45 @@ header{
 }
 
 .card-content{
-    padding:15px;
+    padding:20px;
 }
 
-h2{
-    margin-top:0;
+.card h2{
+    margin-bottom:10px;
 }
 
-ul, ol{
-    text-align:left;
+.card p{
+    margin-bottom:8px;
 }
 
-.recommend-btn{
+.card ul,
+.card ol{
+    margin-left:20px;
+    margin-top:10px;
+}
+
+.card li{
+    margin-bottom:5px;
+}
+
+.btn{
     display:block;
     margin:30px auto;
-    padding:12px 20px;
-    border:none;
-    border-radius:8px;
-    background:#ff7043;
+    background:#ff6b35;
     color:white;
-    cursor:pointer;
+    border:none;
+    padding:15px 25px;
+    border-radius:10px;
     font-size:16px;
+    cursor:pointer;
 }
 
-#recommendation{
+#result{
     text-align:center;
-    font-size:22px;
-    color:#ff7043;
+    font-size:24px;
     font-weight:bold;
-    margin-bottom:30px;
+    color:#ff6b35;
+    margin-top:20px;
 }
 </style>
 
@@ -86,7 +104,7 @@ ul, ol{
 <body>
 
 <header>
-    <h1>Easy Recipe Hub</h1>
+    <h1>🍳 Easy Recipe Hub</h1>
     <p>Simple and Delicious Recipes for Everyone</p>
 </header>
 
@@ -100,15 +118,16 @@ ul, ol{
 
         <div class="card-content">
             <h2>Kimchi Fried Rice</h2>
-            <p><b>Cooking Time:</b> 15 min</p>
-            <p><b>Difficulty:</b> Easy</p>
+
+            <p><strong>Cooking Time:</strong> 15 minutes</p>
+            <p><strong>Difficulty:</strong> Easy</p>
 
             <h3>Ingredients</h3>
             <ul>
-                <li>Rice</li>
+                <li>1 bowl of rice</li>
                 <li>Kimchi</li>
-                <li>Egg</li>
-                <li>Green Onion</li>
+                <li>1 egg</li>
+                <li>Green onion</li>
             </ul>
 
             <h3>Instructions</h3>
@@ -126,15 +145,16 @@ ul, ol{
 
         <div class="card-content">
             <h2>Pasta</h2>
-            <p><b>Cooking Time:</b> 25 min</p>
-            <p><b>Difficulty:</b> Medium</p>
+
+            <p><strong>Cooking Time:</strong> 25 minutes</p>
+            <p><strong>Difficulty:</strong> Medium</p>
 
             <h3>Ingredients</h3>
             <ul>
-                <li>Pasta Noodles</li>
-                <li>Tomato Sauce</li>
+                <li>Pasta noodles</li>
+                <li>Tomato sauce</li>
                 <li>Garlic</li>
-                <li>Olive Oil</li>
+                <li>Olive oil</li>
             </ul>
 
             <h3>Instructions</h3>
@@ -142,7 +162,7 @@ ul, ol{
                 <li>Boil pasta noodles.</li>
                 <li>Cook garlic in olive oil.</li>
                 <li>Add tomato sauce.</li>
-                <li>Mix with pasta and serve.</li>
+                <li>Mix everything together.</li>
             </ol>
         </div>
     </div>
@@ -152,8 +172,9 @@ ul, ol{
 
         <div class="card-content">
             <h2>Pancakes</h2>
-            <p><b>Cooking Time:</b> 20 min</p>
-            <p><b>Difficulty:</b> Easy</p>
+
+            <p><strong>Cooking Time:</strong> 20 minutes</p>
+            <p><strong>Difficulty:</strong> Easy</p>
 
             <h3>Ingredients</h3>
             <ul>
@@ -175,11 +196,11 @@ ul, ol{
 
 </div>
 
-<button class="recommend-btn" onclick="recommendRecipe()">
+<button class="btn" onclick="recommendRecipe()">
     Recommend a Recipe
 </button>
 
-<div id="recommendation"></div>
+<div id="result"></div>
 ```
 
 </div>
@@ -193,11 +214,11 @@ function recommendRecipe(){
         "Pancakes"
     ];
 
-    const random =
-    recipes[Math.floor(Math.random() * recipes.length)];
+    const randomRecipe =
+        recipes[Math.floor(Math.random() * recipes.length)];
 
-    document.getElementById("recommendation").innerText =
-    "Today's Recommendation: " + random;
+    document.getElementById("result").innerHTML =
+        "Today's Recommendation: " + randomRecipe;
 }
 </script>
 
