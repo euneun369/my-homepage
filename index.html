@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,20 +8,21 @@
 
 <style>
 body{
-    font-family: Arial, sans-serif;
-    background:#f4f4f4;
     margin:0;
-    text-align:center;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
 }
 
 header{
     background:#ff7043;
     color:white;
+    text-align:center;
     padding:30px;
 }
 
 .container{
     width:90%;
+    max-width:1200px;
     margin:auto;
     padding:20px;
 }
@@ -34,7 +36,7 @@ header{
 
 .card{
     background:white;
-    width:300px;
+    width:320px;
     border-radius:15px;
     overflow:hidden;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
@@ -42,34 +44,42 @@ header{
 
 .card img{
     width:100%;
-    height:200px;
+    height:220px;
     object-fit:cover;
 }
 
-.card h3{
-    margin:10px;
-}
-
-.card p{
-    padding:0 15px 15px;
+.card-content{
+    padding:15px;
 }
 
 button{
     background:#ff7043;
     color:white;
     border:none;
-    padding:12px 20px;
+    padding:10px 15px;
     border-radius:8px;
     cursor:pointer;
-    margin:20px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.recipe-detail{
+    display:none;
+    margin-top:10px;
+    text-align:left;
 }
 
 #recommendation{
-    font-size:20px;
+    text-align:center;
+    font-size:22px;
     font-weight:bold;
     color:#ff7043;
+    margin-top:20px;
 }
 </style>
+
 </head>
 
 <body>
@@ -81,52 +91,138 @@ button{
 
 <div class="container">
 
-    <h2>Popular Recipes</h2>
+```
+<div class="recipe-grid">
 
-    <div class="recipe-grid">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800" alt="Kimchi Fried Rice">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800" alt="">
-            <h3>Kimchi Fried Rice</h3>
-            <p>Easy Korean fried rice with kimchi.</p>
+        <div class="card-content">
+            <h2>Kimchi Fried Rice</h2>
+            <p>Cooking Time: 15 min | Difficulty: Easy</p>
+
+            <button onclick="toggleRecipe('recipe1')">
+                View Recipe
+            </button>
+
+            <div class="recipe-detail" id="recipe1">
+                <h4>Ingredients</h4>
+                <ul>
+                    <li>Rice</li>
+                    <li>Kimchi</li>
+                    <li>Egg</li>
+                    <li>Green Onion</li>
+                </ul>
+
+                <h4>Instructions</h4>
+                <ol>
+                    <li>Stir-fry the kimchi.</li>
+                    <li>Add rice and mix well.</li>
+                    <li>Top with a fried egg.</li>
+                    <li>Serve hot.</li>
+                </ol>
+            </div>
         </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800" alt="">
-            <h3>Pasta</h3>
-            <p>Classic Italian pasta recipe.</p>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800" alt="">
-            <h3>Pancakes</h3>
-            <p>Soft and fluffy breakfast pancakes.</p>
-        </div>
-
     </div>
 
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800" alt="Pasta">
+
+        <div class="card-content">
+            <h2>Pasta</h2>
+            <p>Cooking Time: 25 min | Difficulty: Medium</p>
+
+            <button onclick="toggleRecipe('recipe2')">
+                View Recipe
+            </button>
+
+            <div class="recipe-detail" id="recipe2">
+                <h4>Ingredients</h4>
+                <ul>
+                    <li>Pasta Noodles</li>
+                    <li>Tomato Sauce</li>
+                    <li>Garlic</li>
+                    <li>Olive Oil</li>
+                </ul>
+
+                <h4>Instructions</h4>
+                <ol>
+                    <li>Boil the pasta.</li>
+                    <li>Cook garlic in olive oil.</li>
+                    <li>Add tomato sauce.</li>
+                    <li>Mix with pasta and serve.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800" alt="Pancakes">
+
+        <div class="card-content">
+            <h2>Pancakes</h2>
+            <p>Cooking Time: 20 min | Difficulty: Easy</p>
+
+            <button onclick="toggleRecipe('recipe3')">
+                View Recipe
+            </button>
+
+            <div class="recipe-detail" id="recipe3">
+                <h4>Ingredients</h4>
+                <ul>
+                    <li>Flour</li>
+                    <li>Milk</li>
+                    <li>Eggs</li>
+                    <li>Sugar</li>
+                </ul>
+
+                <h4>Instructions</h4>
+                <ol>
+                    <li>Mix all ingredients.</li>
+                    <li>Pour batter onto a pan.</li>
+                    <li>Cook both sides until golden.</li>
+                    <li>Serve with syrup.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="text-align:center;">
     <button onclick="recommendRecipe()">
         Recommend a Recipe
     </button>
+</div>
 
-    <p id="recommendation"></p>
+<p id="recommendation"></p>
+```
 
 </div>
 
 <script>
+function toggleRecipe(id){
+    const recipe = document.getElementById(id);
+
+    if(recipe.style.display === "block"){
+        recipe.style.display = "none";
+    } else {
+        recipe.style.display = "block";
+    }
+}
+
 function recommendRecipe(){
+    const recipes = [
+        "Kimchi Fried Rice",
+        "Pasta",
+        "Pancakes"
+    ];
 
-const recipes = [
-"Kimchi Fried Rice",
-"Pasta",
-"Pancakes"
-];
+    const randomRecipe =
+    recipes[Math.floor(Math.random() * recipes.length)];
 
-const random =
-recipes[Math.floor(Math.random()*recipes.length)];
-
-document.getElementById("recommendation").innerText =
-"Today's Recommendation: " + random;
+    document.getElementById("recommendation").innerText =
+    "Today's Recommendation: " + randomRecipe;
 }
 </script>
 
